@@ -1,1 +1,0 @@
-# yomali-challenge-frontend
