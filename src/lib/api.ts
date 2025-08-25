@@ -8,13 +8,14 @@ export type Stats = {
     statsPerDay: Array<{
         total_visits: number
         total_unique: number
-        day?: string
+        bucket?: string
     }>
     statsPerPage: Array<{
         pageUrl: string
         total_visits: number
         unique_visits: number
     }>
+    hourly: boolean
 }
 
 export async function fetchStats(

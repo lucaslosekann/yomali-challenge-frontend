@@ -15,13 +15,18 @@ export const description = 'An area chart with gradient fill'
 export default function VisitsChart() {
     const StatsQuery = useStatsQuery()
     const [_overview, ...chartData] = StatsQuery.data?.statsPerDay || []
+
     return (
         <div className="h-72">
             <ResponsiveContainer width="100%" height="100%">
                 <AreaChart
                     data={chartData.map((item) => ({
                         ...item,
-                        date: DateTime.fromISO(item.day!).toFormat('dd LLL'),
+                        date: StatsQuery.data?.hourly
+                            ? DateTime.fromISO(item.bucket!).toFormat(
+                                  'dd LLL HH:00',
+                              )
+                            : DateTime.fromISO(item.bucket!).toFormat('dd LLL'),
                     }))}
                     margin={{
                         top: 5,
