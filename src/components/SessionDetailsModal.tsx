@@ -5,7 +5,7 @@ import {
     MonitorIcon,
     MousePointerIcon,
 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DateTime } from 'luxon'
 import { formatDuration } from '../lib/utils'
 import { useDashboardStatsContext } from '../contexts/DashboardStatsContext'
@@ -31,6 +31,12 @@ export default function SessionDetailsModal({
     const { dateRange, customDate } = useDashboardStatsContext()
 
     const [page, setPage] = useState(1)
+
+    useEffect(() => {
+        if (urlOpen) {
+            setPage(1)
+        }
+    }, [urlOpen])
 
     const SessionDetailsQuery = useQuery({
         queryKey: ['sessionDetails', urlOpen, dateRange, customDate, page],
