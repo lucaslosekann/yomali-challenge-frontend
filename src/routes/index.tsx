@@ -4,6 +4,7 @@ import PageFilter from '../components/PageFilter'
 import { VisitsCard } from '../components/VisitsCard'
 import VisitsChart from '../components/VisitsChart'
 import TopPagesTable from '../components/TopPagesTable'
+import { SessionStats } from '../components/SessionStats'
 
 export const Route = createFileRoute('/')({
     component: App,
@@ -26,6 +27,9 @@ function App() {
                 </div>
                 <div className="grid grid-cols-1 gap-6 mb-6">
                     <VisitsCard />
+                    <div className="lg:col-span-2">
+                        <SessionStats />
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 gap-6 mb-6">
                     <div className="bg-white p-6 rounded-lg shadow-sm lg:col-span-2">

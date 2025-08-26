@@ -20,7 +20,7 @@ export function VisitsCard() {
     )
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-sm">
+        <div className="bg-white p-6 rounded-lg shadow-sm lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="flex items-center">
                     <div className="bg-blue-100 p-3 rounded-full mr-4">
